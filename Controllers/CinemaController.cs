@@ -25,7 +25,7 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdicionaCinema([FromBody] CreateFilmeDto cinemaDto) 
+        public IActionResult AdicionaCinema([FromBody] CreateCinemaDto cinemaDto) 
         {
             Cinema cinema = _mapper.Map<Cinema>(cinemaDto);
             _context.Cinemas.Add(cinema);

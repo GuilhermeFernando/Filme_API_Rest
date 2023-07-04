@@ -1578,11 +1578,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\ProjetoAPi\\FilmesAPI\\FilmesAPI.csproj",
+      "projectUniqueName": "F:\\ProjetoAPi\\Filme_API_Rest\\FilmesAPI.csproj",
       "projectName": "FilmesAPI",
-      "projectPath": "F:\\ProjetoAPi\\FilmesAPI\\FilmesAPI.csproj",
+      "projectPath": "F:\\ProjetoAPi\\Filme_API_Rest\\FilmesAPI.csproj",
       "packagesPath": "C:\\Users\\guife\\.nuget\\packages\\",
-      "outputPath": "F:\\ProjetoAPi\\FilmesAPI\\obj\\",
+      "outputPath": "F:\\ProjetoAPi\\Filme_API_Rest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\guife\\AppData\\Roaming\\NuGet\\NuGet.Config",
