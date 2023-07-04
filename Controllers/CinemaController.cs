@@ -31,29 +31,29 @@ namespace FilmesAPI.Controllers
             _context.Cinemas.Add(cinema);
             return CreatedAtAction(nameof(RecuperaCinemaPorId), new {Id = cinema.Id}, cinemaDto);
         }
-
         [HttpGet]
         public IEnumerable<ReadCinemaDto> RecuperaCinema([FromQuery]  int skip = 0,
             [FromQuery]int take = 50)
         {
-            return _mapper.Map<List<ReadCinemaDto>>(_context.Filmes.Skip(skip).Take(take));         
+            return _mapper.Map<List<ReadCinemaDto>>(_context.Cinemas.Skip(skip).Take(take));         
         }
+
         [HttpGet("{id}")]
         public IActionResult RecuperaCinemaPorId(int id)
         {
-            var cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
-            if (cinema == null)
+            Cinema cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
+            if (cinema != null)
             {
-                return NotFound();
-            }             
-            var cinemaDto = _mapper.Map<ReadFilmeDto>(cinema);
-            return Ok(cinemaDto);       
+                ReadCinemaDto cinemaDto = _mapper.Map<ReadCinemaDto>(cinema);
+                return Ok(cinemaDto);
+            }
+            return NotFound();
         }
 
          [HttpPut("{id}")]
-        public IActionResult AtualizaFilme(int id, [FromBody] UpdateCinemaDto cinemaDto)
+        public IActionResult AtualizaCinema(int id, [FromBody] UpdateCinemaDto cinemaDto)
         {
-            var cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
+            Cinema cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
             if (cinema == null)
             {
                 return NotFound();
@@ -66,18 +66,15 @@ namespace FilmesAPI.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeletaCinema(int id) 
         {
-            var cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
+            Cinema cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
             if (cinema == null)
             {
                 return NotFound();
             }
-            _context.Cinemas.Remove(cinema);
+            _context.Remove(cinema);
             _context.SaveChanges();
             return NoContent();            
         }
-
-
-
 
     }
 }

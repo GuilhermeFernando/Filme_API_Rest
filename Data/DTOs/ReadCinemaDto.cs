@@ -10,5 +10,6 @@ namespace FilmesAPI.Data.DTOs
         
         public int Id { get; set; }
         public string Nome { get; set; }
+        public ReadEnderecoDto Endereco {get;set;}
     }
 }
